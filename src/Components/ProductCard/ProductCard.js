@@ -11,36 +11,45 @@ export default function ProductCard({ props }) {
   return (
     <>
       {showItem == -1 ? (
-        <button
-          onClick={() =>
-            // nav(SINGLE_PAGE, {
-            //   state: {
-            //     product: props,
-            //   },
-            // })
-            setShowItem(props.id)
-          }
-          className="ProductCard"
-        >
-          <img src={props.image} alt="Product" className="ProductImage" />
-          <div className="ProductTexts">
-            <p className="ProductName">{props.name}</p>
-            <p className="ProductDescription">{props.description}</p>
+        <div className="product_card_container">
+          <button
+            onClick={() =>
+              // nav(SINGLE_PAGE, {
+              //   state: {
+              //     product: props,
+              //   },
+              // })
+              setShowItem(props.id)
+            }
+            className="ProductCard"
+          >
+            <img src={props.image} alt="Product" className="ProductImage" />
+            <div className="ProductTexts">
+              <p className="ProductName">{props.name}</p>
+              <p className="ProductDescription">{props.description}</p>
+            </div>
+            <div className="ProductPrices">
+              {props.id % 2 == 1 ? (
+                <>
+                  <p className="ProductPriceOnSale">{props.price}₾</p>
+                  <p className="ProductSalePrice">{props.salePrice}₾</p>
+                </>
+              ) : (
+                <p className="ProductPrice">{props.price}₾</p>
+              )}
+              <p className="ProductProduction">{props.production}</p>
+            </div>
+            <img src={More} alt="MoreIcon" className="MoreIcon" />
+          </button>
+          <div className="prod_btns_container">
+            <button className="del-btn" onClick={() => null}>
+              წაშლა
+            </button>
+            <button className="edit-btn" onClick={() => null}>
+              რედაქტირება
+            </button>
           </div>
-          <div className="ProductPrices">
-            {props.id % 2 == 1 ? (
-              <>
-                <p className="ProductPriceOnSale">{props.price}₾</p>
-                <p className="ProductSalePrice">{props.salePrice}₾</p>
-              </>
-            ) : (
-              <p className="ProductPrice">{props.price}₾</p>
-            )}
-            <p className="ProductProduction">{props.production}</p>
-          </div>
-          <img src={More} alt="MoreIcon" className="MoreIcon" />
-          <button className='delete-btn2' onClick={() => null}>წაშლა</button>
-        </button>
+        </div>
       ) : (
         <button
           onClick={() =>

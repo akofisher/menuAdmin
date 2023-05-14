@@ -1,0 +1,40 @@
+.branch-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.branches_list {
+  margin-top: 50px;
+  width: 90%;
+  height: 500px;
+  /* background: #F5F6FA 0% 0% no-repeat padding-box; */
+  background-image: linear-gradient(#e8dfe0, #8a9ea7);
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.branch_card {
+  width: 200px;
+  height: 150px;
+  border: none;
+  border-radius: 15px;
+  font-style: oblique;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.branch_header_text {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: 800;
+  font-family: Arial, Helvetica, sans-serif;
+}

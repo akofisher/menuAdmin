@@ -3,5 +3,6 @@
 }
 
 .loyout-container {
-  background: #F5F6FA 0% 0% no-repeat padding-box;
+  /* background: #F5F6FA 0% 0% no-repeat padding-box; */
+  background-image: linear-gradient(#e8dfe0, #8a9ea7);
 }

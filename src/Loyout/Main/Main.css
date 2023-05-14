@@ -1,6 +1,71 @@
 .main-container {
-    width: 100%;
-    height: 500px;
-    border: 1px solid black;
-    padding: 20px;
+  width: 100%;
+  min-height: 750px;
+  max-height: 850px;
+  /* border: 1px solid black; */
+  padding: 20px;
+  box-shadow: 4px 4px 4px 4px lightgrey;
+  display: flex;
+}
+.first,
+.second,
+.third {
+  width: 33.3%;
+  /* height: 100%; */
+  box-shadow: 1px 1px 1px 1px lightgrey;
+}
+
+.first_promo {
+  width: 100%;
+  height: 30%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.second_promo {
+  width: 100%;
+  height: 40%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.third_promo {
+  width: 100%;
+  height: 30%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.for_promo {
+  width: 100%;
+  height: 40%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.five_promo {
+  width: 100%;
+  height: 20%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.six_promo {
+  width: 100%;
+  height: 40%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.seven_promo {
+  width: 100%;
+  height: 20%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.ate_promo {
+  width: 100%;
+  height: 60%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
+}
+.nine_promo {
+  width: 100%;
+  height: 20%;
+  box-shadow: 1px 1px 1px 1px lightgrey;
+  padding: 20px;
 }
