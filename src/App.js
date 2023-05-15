@@ -1,5 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import './App.css'
+import { getCookie } from './Cookies'
 import BranchPage from './Loyout/Branch/BranchPage'
 import Category from './Loyout/Category/Category'
 import Login from './Loyout/Login/Login'
@@ -18,6 +19,7 @@ import {
 } from './routes'
 
 function App() {
+  let BRANCH = getCookie('branch')
   return (
     <>
       <Router>
@@ -27,7 +29,11 @@ function App() {
           <Route exact path={PASS_RECOVERY} element={<PassRecovery />} />
           <Route
             exact
-            path={MAIN_PAGE}
+            path={
+              BRANCH !== null && BRANCH !== undefined
+                ? MAIN_PAGE.replace(':branch', BRANCH)
+                : LOGIN
+            }
             element={
               // <Suspense fallback={<Loader />}>
               <PrivateRoute redirectTo={LOGIN}>
@@ -38,7 +44,11 @@ function App() {
           />
           <Route
             exact
-            path={ADD_CATEGORY}
+            path={
+              BRANCH !== null && BRANCH !== undefined
+                ? ADD_CATEGORY.replace(':branch', BRANCH)
+                : LOGIN
+            }
             element={
               // <Suspense fallback={<Loader />}>
               <PrivateRoute redirectTo={LOGIN}>
@@ -49,7 +59,11 @@ function App() {
           />
           <Route
             exact
-            path={ADD_PRODUCT}
+            path={
+              BRANCH !== null && BRANCH !== undefined
+                ? ADD_PRODUCT.replace(':branch', BRANCH)
+                : LOGIN
+            }
             element={
               // <Suspense fallback={<Loader />}>
               <PrivateRoute redirectTo={LOGIN}>

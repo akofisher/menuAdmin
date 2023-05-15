@@ -247,32 +247,32 @@ export const Prod = [
 
 export const Branch = [
   {
-    branchName: 'Paliashvili ',
+    branchName: 'Paliashvili',
     id: 1,
     restaurantName: 'Puri Guliani',
   },
   {
-    branchName: 'osefashvili ',
+    branchName: 'osefashvili',
     id: 2,
     restaurantName: 'Puri Guliani',
   },
   {
-    branchName: 'jachvliani ',
+    branchName: 'jachvliani',
     id: 3,
     restaurantName: 'Puri Guliani',
   },
   {
-    branchName: 'jorj bushi ',
+    branchName: 'jorjbushi',
     id: 4,
     restaurantName: 'Puri Guliani',
   },
   {
-    branchName: 'saakadze ',
+    branchName: 'saakadze',
     id: 5,
     restaurantName: 'Puri Guliani',
   },
   {
-    branchName: 'tafliani megreli',
+    branchName: 'taflianimegreli',
     id: 6,
     restaurantName: 'Puri Guliani',
   },
