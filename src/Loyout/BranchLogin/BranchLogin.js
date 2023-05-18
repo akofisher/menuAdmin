@@ -1,14 +1,28 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getCookie, setCookie } from '../../Cookies'
-import { BRANCH_PAGE, PASS_RECOVERY } from '../../routes'
-import './Login.css'
+import { getCookie } from '../../Cookies'
+import { BRANCH_RECOVERY, MAIN_PAGE } from '../../routes'
+import './BranchLogin.css'
 
-export default function Login() {
+export default function BranchLogin() {
   const nav = useNavigate()
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
   const USERR = getCookie('user')
+  const BRANCH = localStorage.getItem('branch')
+
+  // useEffect(() => {
+  //   if (USERR && BRANCH !== null) {
+  //     // window.location.reload()
+  //     nav(BRANCH_LOGIN)
+  //   }
+  // }, [])
+
+  const handleSubmit = () => {
+    // setCookie('branch', val, 1)
+    // window.location.reload()
+    if (USERR && BRANCH !== null) nav(MAIN_PAGE.replace(':branch', BRANCH))
+  }
 
   // useEffect(() => {
   //   if (USERR) {
@@ -16,20 +30,13 @@ export default function Login() {
   //   }
   // }, [USERR])
 
-  const handleSubmit = () => {
-    setCookie('user', user, 1)
-    nav(BRANCH_PAGE)
-  }
-
-  useEffect(() => {}, [user, password])
-
   return (
     <div className="login-container">
       <form onSubmit={() => handleSubmit()} className="login-form">
-        <p>სისტემაში შესვლა</p>
+        <p>ფილიალში შესვლა</p>
         <div className="inp-cont">
           <label className="label" htmlFor="userName">
-            შეიყვანეთ მომხმარებელი
+            შეიყვანეთ ფილიალი
           </label>
           <input
             id="userName"
@@ -60,7 +67,7 @@ export default function Login() {
         <button className="submit-btn" type="submit">
           შესვლა
         </button>
-        <Link className="recovery-link" to={PASS_RECOVERY}>
+        <Link className="recovery-link" to={BRANCH_RECOVERY}>
           პაროლის აღდგენა
         </Link>
       </form>

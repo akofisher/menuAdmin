@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import { getCookie, setCookie } from '../../Cookies'
-import { BRANCH_PAGE, PASS_RECOVERY } from '../../routes'
-import './Login.css'
+import { useNavigate } from 'react-router-dom'
+import { getCookie } from '../../Cookies'
+import { BRANCH_PAGE } from '../../routes'
+import './AddNewBranch.css'
 
-export default function Login() {
+export default function AddNewBranch() {
   const nav = useNavigate()
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
@@ -17,7 +17,6 @@ export default function Login() {
   // }, [USERR])
 
   const handleSubmit = () => {
-    setCookie('user', user, 1)
     nav(BRANCH_PAGE)
   }
 
@@ -26,10 +25,10 @@ export default function Login() {
   return (
     <div className="login-container">
       <form onSubmit={() => handleSubmit()} className="login-form">
-        <p>სისტემაში შესვლა</p>
+        <p>ფილიალის დამატება</p>
         <div className="inp-cont">
           <label className="label" htmlFor="userName">
-            შეიყვანეთ მომხმარებელი
+            შეიყვანეთ ფილიალის სახელი
           </label>
           <input
             id="userName"
@@ -57,12 +56,24 @@ export default function Login() {
             required
           />
         </div>
+        <div className="inp-cont">
+          <label className="label" htmlFor="password">
+            გაიმეორეთ პაროლი
+          </label>
+          <input
+            id="password"
+            name="password"
+            type="password"
+            onChange={(val) => setPassword(val.target.value)}
+            variant="outlined"
+            label="პაროლი"
+            className="pass-input"
+            required
+          />
+        </div>
         <button className="submit-btn" type="submit">
-          შესვლა
+          დამატება
         </button>
-        <Link className="recovery-link" to={PASS_RECOVERY}>
-          პაროლის აღდგენა
-        </Link>
       </form>
     </div>
   )

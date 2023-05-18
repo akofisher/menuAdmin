@@ -1,31 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { getCookie, setCookie } from '../../Cookies'
+import { getCookie } from '../../Cookies'
 import { Branch } from '../../data'
-import { MAIN_PAGE } from '../../routes'
+import { ADD_NEW_BRANCH, BRANCH_LOGIN } from '../../routes'
 import './BranchPage.css'
 
 export default function BranchPage() {
   const nav = useNavigate()
   const [user, setUser] = useState('')
   const [password, setPassword] = useState('')
-  const USERR = getCookie('user')
-  const BRANCH = getCookie('branch')
   const [modal, setModal] = useState(false)
   const [pincode, setPincode] = useState()
-
-  useEffect(() => {
-    if (USERR && BRANCH !== null) {
-      nav(MAIN_PAGE.replace(':branch', BRANCH))
-    }
-  }, [USERR, BRANCH])
+  const USERR = getCookie('user')
+  const BRANCH = getCookie('branch')
 
   const handleSubmit = async (val) => {
-    setCookie('branch', val, 1)
-    window.location.reload()
-    if (USERR !== null && BRANCH !== null)
-      await nav(MAIN_PAGE.replace(':branch', BRANCH))
+    localStorage.setItem('branch', val)
+    await nav(BRANCH_LOGIN)
   }
 
   const BranchAdding = () => {
@@ -47,6 +39,7 @@ export default function BranchPage() {
     }).then((result) => {
       if (result.isConfirmed) {
         alert('ოპერაცია წარმატებულია')
+        nav(ADD_NEW_BRANCH)
       } else if (result.isDismissed) {
         window.location.reload()
       }
@@ -61,7 +54,7 @@ export default function BranchPage() {
       <div className="branches_list">
         <button
           onClick={() => {
-            BranchAdding()
+            nav(ADD_NEW_BRANCH)
           }}
           type="button"
           className="branch_card"

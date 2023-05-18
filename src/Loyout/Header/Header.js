@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { eraseCookie, getCookie } from '../../Cookies'
+import { eraseCookie } from '../../Cookies'
 import { ADD_CATEGORY, ADD_PRODUCT, LOGIN, MAIN_PAGE } from '../../routes'
 import './Header.css'
 
 export default function Header() {
-  let BRANCH = getCookie('branch')
+  let BRANCH = localStorage.getItem('branch')
   let nav = useNavigate()
   return (
     <div className="header-container">
@@ -43,7 +43,7 @@ export default function Header() {
         className="Logout_btn"
         onClick={() => {
           eraseCookie('user')
-          eraseCookie('branch')
+          localStorage.removeItem('branch')
           nav(LOGIN)
           // window.location.reload()
         }}
