@@ -11,6 +11,7 @@ export default function Products() {
   const [YrO, setYrO] = useState(true)
   const ref = useRef(0)
   const goTo = useRef()
+  const [categ, setCateg] = useState(true)
 
   const handleChoosing = (e) => {
     let cbs = document.getElementsByClassName('checkOr')
@@ -57,9 +58,35 @@ export default function Products() {
         <div className="main-prod-container">
           <div className="left-prod-container">
             <p className="categ-header">არსებული პროდუქტები</p>
+            <div className="inp-conte">
+              <label className="label" htmlFor="categories">
+                აირჩიეთ კატეგორია
+              </label>
+              <select
+                name="categories"
+                id="categories"
+                className="categories_select"
+                required
+                onChange={(val) => setCateg(val.target.value)}
+              >
+                <option value="number">ყველა პროდუქტი</option>
+                {Categories.map((val, idx) => {
+                  return (
+                    <option key={idx} value={`${val.id}`}>
+                      {val.name}
+                    </option>
+                  )
+                })}
+              </select>
+            </div>
             {Prod ? (
               Prod.map((val, idx) => {
-                return <ProductCard props={val} key={idx} />
+                if (categ !== 'number') {
+                  if (val.id == categ)
+                    return <ProductCard props={val} key={idx} />
+                } else {
+                  return <ProductCard props={val} key={idx} />
+                }
               })
             ) : (
               <p>...Loading</p>
