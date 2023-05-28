@@ -11,7 +11,7 @@ export default function Products() {
   const [YrO, setYrO] = useState(true)
   const ref = useRef(0)
   const goTo = useRef()
-  const [categ, setCateg] = useState(true)
+  const [categ, setCateg] = useState("number")
 
   const handleChoosing = (e) => {
     let cbs = document.getElementsByClassName('checkOr')
@@ -20,7 +20,7 @@ export default function Products() {
     }
     e.checked = true
   }
-  const handleSubmit = () => {}
+  const handleSubmit = () => { }
 
   return (
     <Loyout>
@@ -68,6 +68,7 @@ export default function Products() {
                 className="categories_select"
                 required
                 onChange={(val) => setCateg(val.target.value)}
+                value={categ}
               >
                 <option value="number">ყველა პროდუქტი</option>
                 {Categories.map((val, idx) => {
@@ -81,10 +82,10 @@ export default function Products() {
             </div>
             {Prod ? (
               Prod.map((val, idx) => {
-                if (categ !== 'number') {
+                if (categ !== "number") {
                   if (val.id == categ)
                     return <ProductCard props={val} key={idx} />
-                } else {
+                } else if (categ == "number") {
                   return <ProductCard props={val} key={idx} />
                 }
               })
